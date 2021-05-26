@@ -4,9 +4,9 @@ class ShopsController < ApplicationController
   end
   
   def create
-    @shop = User.new(user_params)
+    @shop = Shop.new(shop_params)
     if @shop.save
-      redirect_to login_path
+      redirect_to new_shop_path
       flash[:notice] = 'ユーザーの作成に成功しました'
     else
       flash.now[:alert] = 'ユーザーの作成に失敗しました'
