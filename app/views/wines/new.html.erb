@@ -1,0 +1,15 @@
+<%= form_with model: @wine do |f|%>
+  <div>
+    <%= f.label :grape_name %>
+    <%= f.text_field :grape_name %>
+  </div>
+    <div>
+    <%= f.label :winary_name %>
+    <%= f.text_field :name %>
+  </div>
+    <div>
+    <%= f.label :winary_name_kana %>
+    <%= f.text_field :name_kana %>
+  </div>
+  <%= f.submit%>
+<% end %>
