@@ -14,7 +14,7 @@
 #  wine_name_kana :string(255)
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
-#  country_id     :string(255)
+#  country_id     :integer
 #  shop_id        :bigint           not null
 #  wholesaler_id  :bigint
 #  winary_id      :bigint           not null
@@ -36,9 +36,7 @@ class Wine < ApplicationRecord
   belongs_to :shop
   belongs_to :wholesaler
   belongs_to :winary
-  has_many :grapes
   belongs_to :country
   has_many :wine_grapes, dependent: :destroy
   has_many :grapes, through: :wine_grapes
-  accepts_nested_attributes_for :wholesaler, allow_destroy: true
 end

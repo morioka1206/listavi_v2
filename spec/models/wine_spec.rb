@@ -14,7 +14,7 @@
 #  wine_name_kana :string(255)
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
-#  country_id     :string(255)
+#  country_id     :integer
 #  shop_id        :bigint           not null
 #  wholesaler_id  :bigint
 #  winary_id      :bigint           not null

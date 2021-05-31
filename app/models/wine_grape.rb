@@ -20,7 +20,7 @@
 #
 class WineGrape < ApplicationRecord
   belongs_to :wine
-  belongs_to :grapes
+  belongs_to :grape
   validates :wine_id, presence: true
   validates :grape_id, presence: true
 end

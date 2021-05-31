@@ -3,19 +3,16 @@ class WinesController < ApplicationController
   end
 
   def new
-    @wine = Wine.new
+    @wine = WineForm.new
   end
 
   def create
     @wine = WineForm.new(wine_params)
     
-    binding.pry
     
     if @wine.save
-      flash[:success] = "Object successfully created"
       redirect_to new_wine_path
     else
-      flash[:error] = "Something went wrong"
       render :new
     end
   end
@@ -23,7 +20,8 @@ class WinesController < ApplicationController
   private
 
   def wine_params
-    params.permit(:grape_name, :name, :name_kana)
+    params.permit(:grape_name, :winary_name, :winary_name_kana, :company_name, :wine_name, :wine_name_kana, :vintage, :comment, :purchase_price,
+      :selling_price, :stock, :onlist, :state, :country_id, :winary_id, :grape_id, :wine_id, :wholesaler_id, :grape_id).merge(shop_id: current_shop.id)
   end
   
   

@@ -8,6 +8,8 @@
 #  updated_at :datetime         not null
 #
 class Grape < ApplicationRecord
-  # has_many :wines, thorough: :wine_grapes
-  # has_many :wine_grapes, dependent: :destroy
+  has_many :wines, through: :wine_grapes
+  has_many :wine_grapes, dependent: :destroy
+
+  validates :grape_name, uniqueness: true
 end

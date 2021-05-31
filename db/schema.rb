@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_28_075408) do
+ActiveRecord::Schema.define(version: 2021_05_28_130402) do
 
   create_table "grapes", charset: "utf8", force: :cascade do |t|
     t.string "grape_name"
@@ -38,14 +38,14 @@ ActiveRecord::Schema.define(version: 2021_05_28_075408) do
   end
 
   create_table "wholesalers", charset: "utf8", force: :cascade do |t|
-    t.string "name"
+    t.string "company_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "winaries", charset: "utf8", force: :cascade do |t|
-    t.string "name"
-    t.string "name_kana"
+    t.string "winary_name"
+    t.string "winary_name_kana"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -74,7 +74,7 @@ ActiveRecord::Schema.define(version: 2021_05_28_075408) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "state"
-    t.string "country_id"
+    t.integer "country_id"
     t.index ["shop_id"], name: "index_wines_on_shop_id"
     t.index ["wholesaler_id"], name: "index_wines_on_wholesaler_id"
     t.index ["winary_id"], name: "index_wines_on_winary_id"
