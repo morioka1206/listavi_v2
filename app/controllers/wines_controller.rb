@@ -1,4 +1,5 @@
 class WinesController < ApplicationController
+  # before_action :wine_params, only: [:show, :update, :edit, :delete]
   def index
   end
 
@@ -8,14 +9,22 @@ class WinesController < ApplicationController
 
   def create
     @wine = WineForm.new(wine_params)
-    
-    
     if @wine.save
       redirect_to new_wine_path
     else
       render :new
     end
   end
+
+  def edit
+    @wine = WineForm.new(wine_params)
+  end
+
+  def show
+    @wine = WineForm .new (wine_params)
+  end
+  
+  
 
   private
 
