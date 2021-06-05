@@ -4,6 +4,7 @@
 #
 #  id             :bigint           not null, primary key
 #  comment        :text(65535)
+#  memo           :text(65535)
 #  onlist         :boolean          default(FALSE)
 #  purchase_price :integer
 #  selling_price  :integer

@@ -17,16 +17,36 @@ class WinesController < ApplicationController
   end
 
   def edit
-    @wine = WineForm.new(wine_params)
+    @wine = Wine.find(params[:id])
   end
 
   def show
-    @wine = WineForm .new (wine_params)
+    @wine = WineForm.new(wine_params)
   end
+
+  def update
+    
+    @wine = Wine.find(params[:id])
+    
+    binding.pry
+    
+      if @wine.update(wine_params)
+
+        flash[:success] = "Object was successfully updated"
+        redirect_to edit_wine_path(params[:id])
+      else
+        flash[:error] = "Something went wrong"
+        render 'edit'
+      end
+  end
+  
   
   
 
   private
+
+  
+  
 
   def wine_params
     params.permit(:grape_name, :winary_name, :winary_name_kana, :company_name, :wine_name, :wine_name_kana, :vintage, :comment, :purchase_price,

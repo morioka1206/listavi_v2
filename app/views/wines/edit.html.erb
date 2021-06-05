@@ -1,1 +1,60 @@
-<%= render partial: 'wines/form/wineform' %>
+<%= form_with model: @wine do |f|%>
+  <div>
+    <%= f.label :wine_name %>
+    <%= f.text_field :wine_name , value:"fefe" %>
+  </div>
+  <div>
+    <%= f.label :wine_name_kana %>
+    <%= f.text_field :wine_name_kana, class: "input is-info is-half", size: 10 %>
+  </div>
+  <div>
+    <%= f.label :winary_name %>
+    <%= f.text_field :winary_name, value: @wine.winary.winary_name %>
+  </div>
+  <div>
+    <%= f.label :winary_name_kana %>
+    <%= f.text_field :winary_name_kana, value: @wine.winary.winary_name_kana %>
+  </div>
+  <div>
+    <%= f.label :grape_name %>
+    <%= f.text_field :grape_name, value: @wine.grapes.pluck(:grape_name) %>
+  </div>
+  <div>
+    <%= f.label :vintage %>
+    <%= f.text_field :vintage %>
+  </div>
+  <div>
+    <%= f.label :comment %>
+    <%= f.text_area :comment, class:"textarea" %>
+  </div>
+  <div>
+    <%= f.label :purchase_price %>
+    <%= f.text_field :purchase_price %>
+  </div>
+  <div>
+    <%= f.label :selling_price %>
+    <%= f.number_field :selling_price, min: 0 %>
+  </div>
+  <div>
+    <%= f.label :stock %>
+    <%= f.number_field :stock, min: 0 %>
+  </div>
+  <div>
+    <%= f.label :country %>
+    <%= f.collection_select(:country_id, Country.all, :id, :name, {prompt: "国名を選択してください"}, {class: "is-rounded"}) %>
+  </div>
+  <div>
+    <%= f.label :state%>
+    <%= f.text_field :state %>
+  </div>
+  <div>
+    <%= f.label :company_name%>
+    <%= f.text_field :company_name %>
+  </div>
+  <div>
+    <%= f.label :onlist%>
+    <%= f.check_box :onlist ,{checked: false}, "true", "false" %>
+  </div>
+  <%= f.submit "保存する", class:"button is-link is-outlined" %>
+<% end %>
+
