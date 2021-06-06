@@ -1,2 +1,512 @@
-<h1>Wines#index</h1>
-<p>Find me in app/views/wines/index.html.erb</p>
+
+
+<nav class="navbar is-primary">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://bulma.io">
+        <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">
+      </a>
+    </div>
+    <div id="navMenuExample2" class="navbar-menu">
+      <div class="navbar-start">
+        <%# <a class="navbar-item " href="#">
+          ホーム
+        </a> %>
+        <%= link_to 'ホーム', "#", class: "navbar-item" %>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">
+            価格帯
+          </a>
+          <div class="navbar-dropdown ">
+            <a class="navbar-item " href="#">
+              ~2000円
+            </a>
+            <a class="navbar-item " href="#">
+              ~4000円
+            </a>
+            <a class="navbar-item " href="#">
+              ~6000円
+            </a>
+            <a class="navbar-item " href="#">
+              ~8000円
+            </a>
+            <a class="navbar-item " href="#">
+              ~10000円
+            </a>
+            <a class="navbar-item is-active" href="#">
+              ~20000円
+            </a>
+            <a class="navbar-item " href="#">
+              20000円~
+            </a>
+            <%# <hr class="navbar-divider">
+            <div class="navbar-item">
+              <div>version
+                <p class="has-text-info is-size-6-desktop">0.1.0</p>
+              </div>
+            </div> %>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link"  href="#">
+            タイプ
+          </a>
+          <div class="navbar-dropdown ">
+            <a class="navbar-item " href="#">
+              スパークリング
+            </a>
+            <a class="navbar-item " href="#">
+              赤ワイン
+            </a>
+            <a class="navbar-item " href="#">
+              白ワイン
+            </a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link"  href="#">
+            エリア
+          </a>
+          <div class="navbar-dropdown ">
+            <a class="navbar-item " href="#">
+              オールドワールド
+            </a>
+            <a class="navbar-item " href="#">
+              ニューワールド
+            </a>
+            <a class="navbar-item " href="#">
+              日本
+            </a>
+            <%# <hr class="navbar-divider">
+            <div class="navbar-item">
+              <div>version
+                <p class="has-text-info is-size-6-desktop">0.1.0</p>
+              </div>
+            </div> %>
+          </div>
+        </div>
+      </div>
+      <div class="navbar-end">
+        <%# <a class="navbar-item" href="https://github.com/jgthms/bulma" target="_blank">
+          Github
+        </a>
+        <a class="navbar-item" href="https://twitter.com/jgthms" target="_blank">
+          Twitter
+        </a> %>
+        <div class="navbar-item">
+          <div class="field is-grouped">
+            <p class="control">
+              <a id="twitter" class="button">
+                <span>＋新規登録</span>
+              </a>
+            </p>
+            <p class="control">
+              <a class="button is-primary" href="#">
+                <span class="icon">
+                  <i class="fa fa-download"></i>
+                </span>
+                <span>lestavin</span>
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+<div class="container">
+  <div class="field is-grouped">
+  <p class="control is-expanded">
+    <input class="input" type="text" placeholder="ワインを検索する">
+  </p>
+  <p class="control">
+    <a class="button is-info">
+      検索
+    </a>
+  </p>
+</div>
+</div>
+
+<div class="hero is-fullheight">
+
+
+<table class="table is-background-info is-hoverable is-fullwidth">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>ワイン名</th>
+      <th>ワイン名カナ</th>
+      <th>生産者名</th>
+      <th>生産者名カナ</th>
+      <th>品種</th>
+      <th>ヴィンテージ</th>
+      <th>仕入れ値</th>
+      <th>販売価格</th>
+      <th>ワイン会社</th>
+      <th>オンリスト</th>
+      <th>アクション</th>
+    </tr>
+  </thead>
+  <tfoot>
+    <tr>
+      <th>ID</th>
+      <th>ワイン名</th>
+      <th>ワイン名カナ</th>
+      <th>生産者名</th>
+      <th>生産者名カナ</th>
+      <th>品種</th>
+      <th>ヴィンテージ</th>
+      <th>仕入れ値</th>
+      <th>販売価格</th>
+      <th>ワイン会社</th>
+      <th>オンリスト</th>
+      <th>アクション</th>
+    </tr>
+  </tfoot>
+  <tbody>
+    <%# <%= @wines.each do |wine|%>
+      <%# <tr>
+      <><%= wine.id%>
+      <%# <><%= link_to  "wine.wine_name", url: "#" %>
+      <%# <><%= wine.wine.wine_name_kana%>
+      <%# <><%= wine.winary_name%>
+      <%# <><%= wine.winary_name_kana%>
+      <%# <><%= wine.grape%>
+      <%# <><%= wine.vintage%>
+      <%# <><%= wine.purchase_price%>
+      <%# <><%= wine.selling_price%>
+      <%# <><%= wine.wholesaler.name%>
+      <%# <><%= wine.onlist%>
+      <%# <td class="is-flex-desctop"> %>
+          <%# <div class="button is-danger">削除</div> %>
+          <%# <div class="button is-info">編集</div> %>
+      <%# </td> %>
+    <%# </tr> %> 
+    <%# <% end %>
+    
+    <tr>
+      <th>1</th>
+      <td><%= link_to  "Morioka Wine", url: "#" %></td>
+      <td>モリオカワイン</td>
+      <td>森岡ワイナリー</td>
+      <td>モリオカワイナリー</td>
+      <td>ブラックベリー</td>
+      <td>2022</td>
+      <td>2300</td>
+      <td>7200</td>
+      <td>カクヤス</td>
+      <td>○</td>
+      <td class="is-flex-desctop">
+          <div class="button is-danger">削除</div>
+          <div class="button is-info">編集</div>
+      </td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td><%= link_to  "Morioka Wine", url: "#" %></td>
+      <td>モリオカワイン</td>
+      <td>森岡ワイナリー</td>
+      <td>モリオカワイナリー</td>
+      <td>ブラックベリー</td>
+      <td>2022</td>
+      <td>2300</td>
+      <td>7200</td>
+      <td>カクヤス</td>
+      <td>○</td>
+      <td class="is-flex-desctop">
+          <div class="button is-danger">削除</div>
+          <div class="button is-info">編集</div>
+      </td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td><%= link_to  "Morioka Wine", url: "#" %></td>
+      <td>モリオカワイン</td>
+      <td>森岡ワイナリー</td>
+      <td>モリオカワイナリー</td>
+      <td>ブラックベリー</td>
+      <td>2022</td>
+      <td>2300</td>
+      <td>7200</td>
+      <td>カクヤス</td>
+      <td>○</td>
+      <td class="is-flex-desctop">
+          <div class="button is-danger">削除</div>
+          <div class="button is-info">編集</div>
+      </td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td><%= link_to  "Morioka Wine", url: "#" %></td>
+      <td>モリオカワイン</td>
+      <td>森岡ワイナリー</td>
+      <td>モリオカワイナリー</td>
+      <td>ブラックベリー</td>
+      <td>2022</td>
+      <td>2300</td>
+      <td>7200</td>
+      <td>カクヤス</td>
+      <td>○</td>
+      <td class="is-flex-desctop">
+          <div class="button is-danger">削除</div>
+          <div class="button is-info">編集</div>
+      </td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td><%= link_to  "Morioka Wine", url: "#" %></td>
+      <td>モリオカワイン</td>
+      <td>森岡ワイナリー</td>
+      <td>モリオカワイナリー</td>
+      <td>ブラックベリー</td>
+      <td>2022</td>
+      <td>2300</td>
+      <td>7200</td>
+      <td>カクヤス</td>
+      <td>○</td>
+      <td class="is-flex-desctop">
+          <div class="button is-danger">削除</div>
+          <div class="button is-info">編集</div>
+      </td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td><%= link_to  "Morioka Wine", url: "#" %></td>
+      <td>モリオカワイン</td>
+      <td>森岡ワイナリー</td>
+      <td>モリオカワイナリー</td>
+      <td>ブラックベリー</td>
+      <td>2022</td>
+      <td>2300</td>
+      <td>7200</td>
+      <td>カクヤス</td>
+      <td>○</td>
+      <td class="is-flex-desctop">
+          <div class="button is-danger">削除</div>
+          <div class="button is-info">編集</div>
+      </td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td><%= link_to  "Morioka Wine", url: "#" %></td>
+      <td>モリオカワイン</td>
+      <td>森岡ワイナリー</td>
+      <td>モリオカワイナリー</td>
+      <td>ブラックベリー</td>
+      <td>2022</td>
+      <td>2300</td>
+      <td>7200</td>
+      <td>カクヤス</td>
+      <td>○</td>
+      <td class="is-flex-desctop">
+          <div class="button is-danger">削除</div>
+          <div class="button is-info">編集</div>
+      </td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td><%= link_to  "Morioka Wine", url: "#" %></td>
+      <td>モリオカワイン</td>
+      <td>森岡ワイナリー</td>
+      <td>モリオカワイナリー</td>
+      <td>ブラックベリー</td>
+      <td>2022</td>
+      <td>2300</td>
+      <td>7200</td>
+      <td>カクヤス</td>
+      <td>○</td>
+      <td class="is-flex-desctop">
+          <div class="button is-danger">削除</div>
+          <div class="button is-info">編集</div>
+      </td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td><%= link_to  "Morioka Wine", url: "#" %></td>
+      <td>モリオカワイン</td>
+      <td>森岡ワイナリー</td>
+      <td>モリオカワイナリー</td>
+      <td>ブラックベリー</td>
+      <td>2022</td>
+      <td>2300</td>
+      <td>7200</td>
+      <td>カクヤス</td>
+      <td>○</td>
+      <td class="is-flex-desctop">
+          <div class="button is-danger">削除</div>
+          <div class="button is-info">編集</div>
+      </td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td><%= link_to  "Morioka Wine", url: "#" %></td>
+      <td>モリオカワイン</td>
+      <td>森岡ワイナリー</td>
+      <td>モリオカワイナリー</td>
+      <td>ブラックベリー</td>
+      <td>2022</td>
+      <td>2300</td>
+      <td>7200</td>
+      <td>カクヤス</td>
+      <td>○</td>
+      <td class="is-flex-desctop">
+          <div class="button is-danger">削除</div>
+          <div class="button is-info">編集</div>
+      </td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td><%= link_to  "Morioka Wine", url: "#" %></td>
+      <td>モリオカワイン</td>
+      <td>森岡ワイナリー</td>
+      <td>モリオカワイナリー</td>
+      <td>ブラックベリー</td>
+      <td>2022</td>
+      <td>2300</td>
+      <td>7200</td>
+      <td>カクヤス</td>
+      <td>○</td>
+      <td class="is-flex-desctop">
+          <div class="button is-danger">削除</div>
+          <div class="button is-info">編集</div>
+      </td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td><%= link_to  "Morioka Wine", url: "#" %></td>
+      <td>モリオカワイン</td>
+      <td>森岡ワイナリー</td>
+      <td>モリオカワイナリー</td>
+      <td>ブラックベリー</td>
+      <td>2022</td>
+      <td>2300</td>
+      <td>7200</td>
+      <td>カクヤス</td>
+      <td>○</td>
+      <td class="is-flex-desctop">
+          <div class="button is-danger">削除</div>
+          <div class="button is-info">編集</div>
+      </td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td><%= link_to  "Morioka Wine", url: "#" %></td>
+      <td>モリオカワイン</td>
+      <td>森岡ワイナリー</td>
+      <td>モリオカワイナリー</td>
+      <td>ブラックベリー</td>
+      <td>2022</td>
+      <td>2300</td>
+      <td>7200</td>
+      <td>カクヤス</td>
+      <td>○</td>
+      <td class="is-flex-desctop">
+          <div class="button is-danger">削除</div>
+          <div class="button is-info">編集</div>
+      </td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td><%= link_to  "Morioka Wine", url: "#" %></td>
+      <td>モリオカワイン</td>
+      <td>森岡ワイナリー</td>
+      <td>モリオカワイナリー</td>
+      <td>ブラックベリー</td>
+      <td>2022</td>
+      <td>2300</td>
+      <td>7200</td>
+      <td>カクヤス</td>
+      <td>○</td>
+      <td class="is-flex-desctop">
+          <div class="button is-danger">削除</div>
+          <div class="button is-info">編集</div>
+      </td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td><%= link_to  "Morioka Wine", url: "#" %></td>
+      <td>モリオカワイン</td>
+      <td>森岡ワイナリー</td>
+      <td>モリオカワイナリー</td>
+      <td>ブラックベリー</td>
+      <td>2022</td>
+      <td>2300</td>
+      <td>7200</td>
+      <td>カクヤス</td>
+      <td>○</td>
+      <td class="is-flex-desctop">
+          <div class="button is-danger">削除</div>
+          <div class="button is-info">編集</div>
+      </td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td><%= link_to  "Morioka Wine", url: "#" %></td>
+      <td>モリオカワイン</td>
+      <td>森岡ワイナリー</td>
+      <td>モリオカワイナリー</td>
+      <td>ブラックベリー</td>
+      <td>2022</td>
+      <td>2300</td>
+      <td>7200</td>
+      <td>カクヤス</td>
+      <td>○</td>
+      <td class="is-flex-desctop">
+          <div class="button is-danger">削除</div>
+          <div class="button is-info">編集</div>
+      </td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td><%= link_to  "Morioka Wine", url: "#" %></td>
+      <td>モリオカワイン</td>
+      <td>森岡ワイナリー</td>
+      <td>モリオカワイナリー</td>
+      <td>ブラックベリー</td>
+      <td>2022</td>
+      <td>2300</td>
+      <td>7200</td>
+      <td>カクヤス</td>
+      <td>○</td>
+      <td class="is-flex-desctop">
+          <div class="button is-danger">削除</div>
+          <div class="button is-info">編集</div>
+      </td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td><%= link_to  "Morioka Wine", url: "#" %></td>
+      <td>モリオカワイン</td>
+      <td>森岡ワイナリー</td>
+      <td>モリオカワイナリー</td>
+      <td>ブラックベリー</td>
+      <td>2022</td>
+      <td>2300</td>
+      <td>7200</td>
+      <td>カクヤス</td>
+      <td>○</td>
+      <td class="is-flex-desctop">
+          <div class="button is-danger">削除</div>
+          <div class="button is-info">編集</div>
+      </td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td><%= link_to  "Morioka Wine", url: "#" %></td>
+      <td>モリオカワイン</td>
+      <td>森岡ワイナリー</td>
+      <td>モリオカワイナリー</td>
+      <td>ブラックベリー</td>
+      <td>2022</td>
+      <td>2300</td>
+      <td>7200</td>
+      <td>カクヤス</td>
+      <td>○</td>
+      <td class="is-flex-desctop">
+          <div class="button is-danger">削除</div>
+          <div class="button is-info">編集</div>
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+</div>

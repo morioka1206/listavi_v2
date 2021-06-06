@@ -1,6 +1,6 @@
 <section class= "hero is-fullheight" id="app-1">
   <%= form_with url: wines_path do |f|%>
-  <div class=" columns wineform is-variable is-8 is-white ">
+  <div class=" columns wineform ">
     <div class= "column">
           <div class="columns">
             <div class="winename">
@@ -83,19 +83,23 @@
                 </div>
           </div>
     </div>
-    <div class="column rightform">
+    <div class="column wineform">
           <div class="columns">
                 <div class="column">
                 <%= f.label :comment,"テイスティングコメント", class:"is-size-6" %>
                 <%= f.text_area :comment, class:"textarea is-primary is-rounded" %>
                 </div>
           </div>
+          <br>
           <div class="columns">
                 <div class="column">
                   <%= f.label :memo,"メモ", class:"is-size-6" %>
                   <%= f.text_area :memo, class:"textarea is-primary is-rounded" %>
                 </div>
           </div>
+          <br>
+        
+          <br>
           <div class="columns">
                 <div class="column">
                   <div>
@@ -104,8 +108,10 @@
                   <%= f.check_box :onlist ,{checked: false, class:"checkbox is-primary"}, "true", "false" %>
                 </div>
           </div>
-          <div class="columns">
-                <div class="column">
+          <br>
+          <br>
+          <div class="columns ">
+                <div class="column box">
                 <p>ワイン名：</p>
                 <p>ワイン名カナ：</p>
                 <p>生産者名：</p>
