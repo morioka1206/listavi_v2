@@ -31,11 +31,8 @@ class WinesController < ApplicationController
     binding.pry
     
       if @wine.update(wine_params)
-
-        flash[:success] = "Object was successfully updated"
         redirect_to edit_wine_path(params[:id])
       else
-        flash[:error] = "Something went wrong"
         render 'edit'
       end
   end
