@@ -1,2 +1,2 @@
-Pagy::VARS[:items] = 10
+Pagy::VARS[:items] = 30
 require 'pagy/extras/bulma'

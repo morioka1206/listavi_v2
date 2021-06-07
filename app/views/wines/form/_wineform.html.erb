@@ -5,11 +5,11 @@
           <div class="columns">
             <div class="winename">
               <div class="column ">
-                <%= f.label :wine_name, "ワイン名（アルファベット）", class:"is-size-6" %>
-                <%= f.text_field :wine_name , class: "leftform input is-primary is-rounded" %>
+                <%= f.label :wine_name, "ワイン名（アルファベットもしくは日本語）", class:"is-size-7" %>
+                <%= f.text_field :wine_name , class: "leftform input is-primary is-rounded", "v-model" => "winename" %>
               </div>
               <div class="column">
-                <%= f.label :wine_name_kana, "ワイン名（カナ）" , class:"is-size-6"%>
+                <%= f.label :wine_name_kana, "ワイン名（カナ）" , class:"is-size-7"%>
                 <%= f.text_field :wine_name_kana, class: "input is-rounded is-primary" %>
               </div>
             </div>
@@ -17,8 +17,8 @@
           <div class="columns">
             <div class="winaryname">
                 <div class="column ">
-                  <%= f.label :winary_name, "ワイン生産者（アルファベット）" , class:"is-size-6"%>
-                  <%= f.text_field :winary_name, class: "input is-info is-primary is-rounded" %>
+                  <%= f.label :winary_name, "ワイン生産者（アルファベットもしくは日本語）" , class:"is-size-7"%>
+                  <%= f.text_field :winary_name, class: "input is-info is-primary is-rounded" , "v-model"=> "winaryname"%>
                 </div>
                 <div class="column">
                   <%= f.label :winary_name_kana, "ワイン生産者（カナ）" , class:"is-size-6"%>
@@ -29,56 +29,56 @@
           <div class="columns">
                 <div class="column">
                     <div>
-                    <%= f.label :country, "生産国", class:"is-size-6" %>
+                    <%= f.label :country, "生産国", class:"is-size-7" %>
                     </div>
                     <%= f.collection_select(:country_id, Country.all, :id, :name, {prompt: "国名を選択してください"}, {class: "select is-primary is-rounded"}) %>
                   </div>
                 <div class="column state">
-                  <%= f.label :state, "州・地域名", class:"is-size-6"%>
+                  <%= f.label :state, "州・地域名", class:"is-size-7"%>
                   <%= f.text_field :state , class: "input is-primary is-rounded"%>
                 </div>
           </div>
           <div class="columns">
                 <div class="column">
-                  <%= f.label :grape_name, "ぶどう品種", class:"is-size-6"%>
-                  <%= f.text_field :grape_name , class: "input is-primary is-rounded"%>
+                  <%= f.label :grape_name, "ぶどう品種", class:"is-size-7"%>
+                  <%= f.text_field :grape_name , class: "input is-primary is-rounded", "v-model" => "grapes"%>
             </div>
           </div>
           <div class="columns">
                 <div class="column is-half">
-                  <%= f.label :vintage, "ヴィンテージ", class:"is-size-6" %>
+                  <%= f.label :vintage, "ヴィンテージ", class:"is-size-7" %>
                   <%= f.text_field :vintage, class: "input is-primary is-rounded" %>
                 </div>
           </div>
           <div class="columns is-flex-desktop">
                 <div class="column is-half">
-                  <%= f.label :purchase_price, "仕入れ価格", class:"is-size-6" %>
+                  <%= f.label :purchase_price, "仕入れ価格", class:"is-size-7" %>
                   <%= f.number_field :purchase_price, class: "input is-primary is-rounded", "v-model"=>"guideline_price"%>
                 </div>
                 <div class="column is-half">
-                <label>販売価格目安
+                <label class="is-size-6">販売価格目安
                 <p>{{ guideline_price * 3}}円</p>
                 </div>
           </div>
           <div class="columns is-flex-desktop">
                 <div class="column is-half">
-                  <%= f.label :selling_price, "販売価格" , class:"is-size-6"%>
+                  <%= f.label :selling_price, "販売価格" , class:"is-size-7"%>
                   <%= f.number_field :selling_price , class: "input is-primary is-rounded", "v-model"=>"selling_price"%>
                 </div>
                 <div class="column is-half">
-                <label>原価率
+                <label class="is-size-6">原価率
                 <p>{{ Math.floor(cost || '0') }} %</p>
                 </div>
           </div>
           <div class="columns">
                 <div class="column is-one-quarter">
-                  <%= f.label :stock, "在庫数", class:"is-size-6" %>
-                  <%= f.number_field :stock, min: 0 , class: "input is-primary is-rounded"%>
+                  <%= f.label :stock, "在庫数", class:"is-size-7" %>
+                  <%= f.number_field :stock, min: 0 , class: "input is-primary is-rounded", "v-model" => "stock"%>
                 </div>
           </div>
           <div class="columns">
                 <div class="column">
-                  <%= f.label :company_name, "ワイン会社", class:"is-size-6"%>
+                  <%= f.label :company_name, "ワイン会社", class:"is-size-7"%>
                   <%= f.text_field :company_name , class: "input is-primary is-rounded"%>
                 </div>
           </div>
@@ -86,15 +86,15 @@
     <div class="column wineform">
           <div class="columns">
                 <div class="column">
-                <%= f.label :comment,"テイスティングコメント", class:"is-size-6" %>
-                <%= f.text_area :comment, class:"textarea is-primary is-rounded" %>
+                <%= f.label :comment,"テイスティングコメント", class:"is-size-7" %>
+                <%= f.text_area :comment, class:"textarea is-primary is-rounded", "v-model" => "comment" %>
                 </div>
           </div>
           <br>
           <div class="columns">
                 <div class="column">
-                  <%= f.label :memo,"メモ", class:"is-size-6" %>
-                  <%= f.text_area :memo, class:"textarea is-primary is-rounded" %>
+                  <%= f.label :memo,"メモ", class:"is-size-7" %>
+                  <%= f.text_area :memo, class:"textarea is-primary is-rounded", "v-model" => "memo" %>
                 </div>
           </div>
           <br>
@@ -103,7 +103,7 @@
           <div class="columns">
                 <div class="column">
                   <div>
-                  <%= f.label :onlist,"ワインリストに載せる場合はチェックを入れてください。", class:"is-size-6"%>
+                  <%= f.label :onlist,"ワインリストに載せる場合はチェックを入れてください。", class:"is-size-7"%>
                   </div>
                   <%= f.check_box :onlist ,{checked: false, class:"checkbox is-primary"}, "true", "false" %>
                 </div>
@@ -111,20 +111,15 @@
           <br>
           <br>
           <div class="columns ">
-                <div class="column box">
-                <p>ワイン名：</p>
-                <p>ワイン名カナ：</p>
-                <p>生産者名：</p>
-                <p>生産者名カナ：</p>
-                <p>生産国：</p>
-                <p>州・地域名：</p>
-                <p>品種：</p>
-                <p>仕入れ価格：</p>
-                <p>販売価格：</p>
-                <p>在庫数：</p>
-                <p>ワイン会社：</p>
-                <p>テイスティングノート：</p>
-                <p>メモ：</p>
+                <div class="column box is-size-6">
+                <p>ワイン名：{{winename}}</p>
+                <p>生産者名：{{ winaryname}}</p>
+                <p>品種：{{ grapes }}</p>
+                <p>仕入れ価格：{{guideline_price}}円</p>
+                <p>販売価格：{{selling_price}}円</p>
+                <p>在庫数：{{stock}}本</p>
+                <p class="has-background-white">テイスティングノート：{{comment}}</p>
+                <p class="has-background-white">メモ：{{memo}}</p>
                 </div>
           </div>
       </div>
@@ -136,6 +131,7 @@
    <%= f.submit "保存する", class:"button is-link is-fullwidth  is-rounded" %>
    </div>
   <% end %>
+  
 </section>
 
 <script>
@@ -143,7 +139,16 @@ new Vue({
     el: '#app-1',
     data: {
         guideline_price : '',
+        purchase_price : '',
         selling_price : '',
+        winename : '',
+        winaryname : '',
+        country : '',
+        grapes : '',
+        stock : '',
+        comment : '',
+        memo : '',
+
     },
     computed: {
       cost: function() { 
