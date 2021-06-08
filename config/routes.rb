@@ -7,5 +7,9 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   get 'wines/top'
-  resources :wines
+  resources :wines do
+    collection do
+      get 'search'
+    end
+  end
 end

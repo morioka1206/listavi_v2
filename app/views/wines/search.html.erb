@@ -124,7 +124,7 @@
             検索
           </a>
         </p>
-        <%= search_form_for @q, url: search_wines_path do |f|%>
+        <%= search_form_for @q, url:search_wines_path do |f|%>
           <%= f.label :wine_name, "ワインを検索する"%>
           <%= f.search_field :wine_name_cont %>
           <%= f.submit "検索" ,class: "button is-dark"%>
@@ -169,7 +169,7 @@
         </tr>
       </tfoot> %>
       <tbody>
-        <% @wines.each do |wine|%>
+        <% @results.each do |wine|%>
           <tr>
           <td><%= wine.id%>
           <td><%= link_to  wine.wine_name, url: "#"%>

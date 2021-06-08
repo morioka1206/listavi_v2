@@ -105,7 +105,7 @@
                   <div>
                   <%= f.label :onlist,"ワインリストに載せる場合はチェックを入れてください。", class:"is-size-7"%>
                   </div>
-                  <%= f.check_box :onlist ,{checked: false, class:"checkbox is-primary"}, "true", "false" %>
+                  <%= f.check_box :onlist ,{checked: false, class: "app_checkbox", "v-model" => "onlist"}, "true", "false" %>
                 </div>
           </div>
           <br>
@@ -118,6 +118,7 @@
                 <p>仕入れ価格：{{guideline_price}}円</p>
                 <p>販売価格：{{selling_price}}円</p>
                 <p>在庫数：{{stock}}本</p>
+                <p>在庫数：{{onlist}}本</p>
                 <p class="has-background-white">テイスティングノート：{{comment}}</p>
                 <p class="has-background-white">メモ：{{memo}}</p>
                 </div>
@@ -148,6 +149,7 @@ new Vue({
         stock : '',
         comment : '',
         memo : '',
+        onlist : "",
 
     },
     computed: {

@@ -1,9 +1,18 @@
 class WinesController < ApplicationController
   # before_action :wine_params, only: [:show, :update, :edit, :delete]
   include Pagy::Backend
+  before_action :set_q, only: [:index, :search]
 
   def index
+    # @q = Wine.ransack(params[:q])
     @pagy, @wines = pagy(Wine.all)
+    # @pagy,@wines = @q.result(distinct: true)
+  end
+
+  def search
+    
+    
+    @pagy, @results = pagy(@q.result)
   end
 
   def new
@@ -54,7 +63,9 @@ class WinesController < ApplicationController
 
   private
 
-  
+  def set_q
+    @q = Wine.ransack(params[:q])
+  end
   
 
   def wine_params
@@ -63,4 +74,6 @@ class WinesController < ApplicationController
   end
   
   
+  
+
 end
