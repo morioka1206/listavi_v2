@@ -104,7 +104,7 @@
                 <span class="icon">
                   <i class="fa fa-download"></i>
                 </span>
-                <span>lestavin</span>
+                <span>listavin</span>
               </a>
             </p>
           </div>
@@ -127,8 +127,15 @@
         <%= search_form_for @q, url: search_wines_path do |f|%>
             <div class="columns">
               <div class="control is-expanded column">
-                <%= f.label :wine_name, "ワインを検索する"%>
-                <%= f.search_field :wine_name_cont, class:"input" %>
+                <%= f.label :wine_name, "ワイン名、生産者でを検索する"%>
+                <%= f.search_field :wine_name_or_wine_name_kana_cont, class:"input" %>
+                <%= f.label :selling_price, "販売価格で検索する"%>
+                <%= f.radio_button :selling_price_lteq, "4000", class:"" %>4000円以下
+                <%= f.radio_button :selling_price_lteq, "6000", class:"" %>6000円以下
+                <%= f.radio_button :selling_price_lteq, "8000", class:"" %>8000円以下
+                <%= f.radio_button :selling_price_lteq, "10000", class:"" %>10000円以下
+                <%= f.radio_button :selling_price_lteq, "20000", class:"" %>20000円以下
+                <%= f.radio_button :selling_price_gteq, "20000", class:"" %>20000円以上
             <%# </div> %>
             <%# <div class="control"> %>
               <%= f.submit "検索" ,class: "button is-dark"%>
@@ -144,17 +151,17 @@
     <table class="table is-background-info is-hoverable is-fullwidth">
       <thead>
         <tr>
-          <th>ID</th>
-          <th>ワイン名</th>
-          <th>ワイン名カナ</th>
-          <th>生産者名</th>
-          <th>生産者名カナ</th>
-          <th>品種</th>
-          <th>ヴィンテージ</th>
-          <th>仕入れ値</th>
-          <th>販売価格</th>
-          <th>ワイン会社</th>
-          <th>オンリスト</th>
+          <th><%= sort_link(@q, :id, "ID" )%></th>
+          <th><%= sort_link(@q, :wine_name, "ワイン名")%></th>
+          <th><%= sort_link(@q, :wine_name_kana, "ワイン名カナ")%></th>
+          <th><%= sort_link(@q, :winary_winary_name, "生産者")%></th>
+          <th><%= sort_link(@q, :winary_winary_name_kana, "生産者カナ")%></th>
+          <th><%= sort_link(@q, :wine_grape_grape_name, "品種")%></th>
+          <th><%= sort_link(@q, :vintage, "ヴィンテージ")%></th>
+          <th><%= sort_link(@q, :purchase_price, "仕入れ値")%></th>
+          <th><%= sort_link(@q, :selling_price, "販売価格")%></th>
+          <th><%= sort_link(@q, :wine_wholesaler, "ワイン会社")%></th>
+          <th><%= sort_link(@q, :onlist, "オンリスト")%></th>
           <th>アクション</th>
         </tr>
       </thead>
