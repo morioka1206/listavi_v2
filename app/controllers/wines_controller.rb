@@ -1,7 +1,10 @@
 class WinesController < ApplicationController
+  require 'active_support'
+  require 'active_support/core_ext'
+
   # before_action :wine_params, only: [:show, :update, :edit, :delete]
   include Pagy::Backend
-  before_action :set_q, only: [:index, :search]
+  before_action :set_q, only: [:index, :search, :copy]
 
   def index
     # @q = Wine.ransack(params[:q])
@@ -10,9 +13,15 @@ class WinesController < ApplicationController
   end
 
   def search
-    
-    
     @pagy, @results = pagy(@q.result)
+  end
+
+  def copy
+    wine = Wine.find(params[:id])
+    
+    wine = wine.deep_dup
+    wine.save
+    redirect_to wines_index_path
   end
 
   def new
@@ -46,8 +55,8 @@ class WinesController < ApplicationController
     @wine = WineForm.new(update_wine_params)
     
       if @wine.update
-        
-        redirect_to edit_wine_path(params[:id])
+        redirect_to wines_index_path
+        # redirect_to edit_wine_path(params[:id])
       else
         render 'edit'
       end
