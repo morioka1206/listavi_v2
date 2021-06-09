@@ -29,7 +29,11 @@ class WinesController < ApplicationController
   end
 
   def edit
-    @wine = Wine.find(params[:id])
+    wine = Wine.find(params[:id])
+    wine_form = WineForm.new
+    
+    @wine = wine_form.set_attributes(wine)
+    
   end
 
   def show
@@ -38,11 +42,11 @@ class WinesController < ApplicationController
 
   def update
     
-    @wine = Wine.find(params[:id])
+    wine = Wine.find(params[:id])
+    @wine = WineForm.new(update_wine_params)
     
-    binding.pry
-    
-      if @wine.update(wine_params)
+      if @wine.update
+        
         redirect_to edit_wine_path(params[:id])
       else
         render 'edit'
@@ -70,7 +74,12 @@ class WinesController < ApplicationController
 
   def wine_params
     params.permit(:grape_name, :winary_name, :winary_name_kana, :company_name, :wine_name, :wine_name_kana, :vintage, :comment, :purchase_price,:memo,
-      :selling_price, :stock, :onlist, :state, :country_id, :winary_id, :grape_id, :wine_id, :wholesaler_id, :grape_id).merge(shop_id: current_shop.id)
+      :selling_price, :stock, :onlist, :state, :country_id, :winary_id, :grape_id, :wine_id, :wholesaler_id, :grape_id, :wine_type).merge(shop_id: current_shop.id)
+  end
+
+  def update_wine_params
+    params.require(:wine_form).permit(:grape_name, :winary_name, :winary_name_kana, :company_name, :wine_name, :wine_name_kana, :vintage, :comment, :purchase_price,:memo,
+      :selling_price, :stock, :onlist, :state, :country_id, :winary_id, :grape_ids, :wine_id, :wholesaler_id, :grape_id, :wine_type).merge(shop_id: current_shop.id)
   end
   
   

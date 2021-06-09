@@ -1,5 +1,5 @@
 <section class= "hero is-fullheight" id="app-1">
-  <%= form_with url: wines_path do |f|%>
+  <%= form_with url: wines_path do |f|%>n
   <div class=" columns wineform ">
     <div class= "column">
           <div class="columns">
@@ -21,10 +21,19 @@
                   <%= f.text_field :winary_name, class: "input is-info is-primary is-rounded" , "v-model"=> "winaryname"%>
                 </div>
                 <div class="column">
-                  <%= f.label :winary_name_kana, "ワイン生産者（カナ）" , class:"is-size-6"%>
+                  <%= f.label :winary_name_kana, "ワイン生産者（カナ）" , class:"is-size-7"%>
                   <%= f.text_field :winary_name_kana, class: "input is-primary is-rounded" %>
                 </div>
             </div>
+          </div>
+          <div class="columns">
+                <div class="column">
+                  <div>
+                  <%= f.label :_winetype, "タイプ", class:"is-size-7"%>
+                  </div>
+                  <%= f.select :wine_type, ["スパークリング","赤ワイン","白ワイン"], {prompt: "種類を選択してください"} ,{class: "select is-primary is-rounded", required: true}%>
+                </div>
+                
           </div>
           <div class="columns">
                 <div class="column">
@@ -70,12 +79,7 @@
                 <p>{{ Math.floor(cost || '0') }} %</p>
                 </div>
           </div>
-          <div class="columns">
-                <div class="column is-one-quarter">
-                  <%= f.label :stock, "在庫数", class:"is-size-7" %>
-                  <%= f.number_field :stock, min: 0 , class: "input is-primary is-rounded", "v-model" => "stock"%>
-                </div>
-          </div>
+          
           <div class="columns">
                 <div class="column">
                   <%= f.label :company_name, "ワイン会社", class:"is-size-7"%>
@@ -97,7 +101,12 @@
                   <%= f.text_area :memo, class:"textarea is-primary is-rounded", "v-model" => "memo" %>
                 </div>
           </div>
-          <br>
+          <div class="columns">
+                <div class="column is-one-quarter">
+                  <%= f.label :stock, "在庫数", class:"is-size-7" %>
+                  <%= f.number_field :stock, min: 0 , class: "input is-primary is-rounded", "v-model" => "stock"%>
+                </div>
+          </div>
         
           <br>
           <div class="columns">

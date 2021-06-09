@@ -116,20 +116,26 @@
   
 <div class="container wine-search ">
       <div class="field is-grouped">
-        <p class="control is-expanded">
+        <%# <p class="control is-expanded">
           <input class="input" type="text" placeholder="ワインを検索する">
         </p>
         <p class="control">
           <a class="button is-dark">
             検索
           </a>
-        </p>
+        </p> %>
         <%= search_form_for @q, url: search_wines_path do |f|%>
-          <%= f.label :wine_name, "ワインを検索する"%>
-          <%= f.search_field :wine_name_cont %>
-          <%= f.submit "検索" ,class: "button is-dark"%>
-          
+            <div class="columns">
+              <div class="control is-expanded column">
+                <%= f.label :wine_name, "ワインを検索する"%>
+                <%= f.search_field :wine_name_cont, class:"input" %>
+            <%# </div> %>
+            <%# <div class="control"> %>
+              <%= f.submit "検索" ,class: "button is-dark"%>
+              </div>
+            </div>
         <% end %>
+        
       </div>
       <div class="pagination is-centered is-rounded has-text-centered "><%== pagy_bulma_nav(@pagy) %></div>
 </div>

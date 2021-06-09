@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_04_162624) do
+ActiveRecord::Schema.define(version: 2021_06_08_100816) do
 
   create_table "grapes", charset: "utf8", force: :cascade do |t|
     t.string "grape_name"
@@ -76,6 +76,7 @@ ActiveRecord::Schema.define(version: 2021_06_04_162624) do
     t.string "state"
     t.integer "country_id"
     t.text "memo"
+    t.string "wine_type"
     t.index ["shop_id"], name: "index_wines_on_shop_id"
     t.index ["wholesaler_id"], name: "index_wines_on_wholesaler_id"
     t.index ["winary_id"], name: "index_wines_on_winary_id"

@@ -13,6 +13,7 @@
 #  vintage        :integer
 #  wine_name      :string(255)      not null
 #  wine_name_kana :string(255)
+#  wine_type      :string(255)
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #  country_id     :integer
