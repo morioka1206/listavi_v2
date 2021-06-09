@@ -97,6 +97,8 @@ GEM
     faraday-net_http (1.0.1)
     faraday-net_http_persistent (1.1.0)
     ffi (1.15.1)
+    font-awesome-sass (5.15.1)
+      sassc (>= 1.11)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     i18n (1.8.10)
@@ -263,6 +265,7 @@ DEPENDENCIES
   byebug
   factory_bot_rails
   faker
+  font-awesome-sass
   image_processing (~> 1.2)
   jbuilder (~> 2.7)
   listen (~> 3.3)

@@ -13,31 +13,15 @@
         </a> %>
         <%= link_to 'ホーム', "#", class: "navbar-item" %>
         <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link" href="#">
+          <p class="navbar-link" >
             価格帯
-          </a>
+          </p>
           <div class="navbar-dropdown ">
-            <a class="navbar-item " href="#">
-              ~2000円
-            </a>
-            <a class="navbar-item " href="#">
-              ~4000円
-            </a>
-            <a class="navbar-item " href="#">
-              ~6000円
-            </a>
-            <a class="navbar-item " href="#">
-              ~8000円
-            </a>
-            <a class="navbar-item " href="#">
-              ~10000円
-            </a>
-            <a class="navbar-item is-active" href="#">
-              ~20000円
-            </a>
-            <a class="navbar-item " href="#">
-              20000円~
-            </a>
+            <%= link_to  "~4000円", search_wines_path(@q, :'q[selling_price_gteq' => '2000', :'q[selling_price_lteq' => '4000'),class: "navbar-item" %>
+            <%= link_to  "~6000円", search_wines_path(@q, :'q[selling_price_gteq' => '4000', :'q[selling_price_lteq' => '6000'),class: "navbar-item" %>
+            <%= link_to  "~8000円", search_wines_path(@q, :'q[selling_price_gteq' => '6000', :'q[selling_price_lteq' => '8000'),class: "navbar-item" %>
+            <%= link_to  "~10000円", search_wines_path(@q, :'q[selling_price_gteq' => '8000', :'q[selling_price_lteq' => '10000'),class: "navbar-item" %>
+            <%= link_to  "~20000円", search_wines_path(@q, :'q[selling_price_gteq' => '10000', :'q[selling_price_lteq' => '20000'),class: "navbar-item" %>
             <%# <hr class="navbar-divider">
             <div class="navbar-item">
               <div>version
@@ -47,35 +31,24 @@
           </div>
         </div>
         <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link"  href="#">
+          <p class="navbar-link">
             タイプ
-          </a>
+          </p>
           <div class="navbar-dropdown ">
-            <a class="navbar-item " href="#">
-              スパークリング
-            </a>
-            <a class="navbar-item " href="#">
-              赤ワイン
-            </a>
-            <a class="navbar-item " href="#">
-              白ワイン
-            </a>
+            <%= link_to  "スパークリング", search_wines_path(@q, :'q[wine_type_eq' => 'スパークリング'),class: "navbar-item" %>
+            <%= link_to  "赤ワイン", search_wines_path(@q, :'q[wine_type_eq' => '赤ワイン'),class: "navbar-item" %>
+            <%= link_to  "白ワイン", search_wines_path(@q, :'q[wine_type_eq' => '白ワイン'),class: "navbar-item" %>
           </div>
         </div>
         <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link"  href="#">
+          <p class="navbar-link" >
             エリア
-          </a>
+          </p>
           <div class="navbar-dropdown ">
-            <a class="navbar-item " href="#">
-              オールドワールド
-            </a>
-            <a class="navbar-item " href="#">
-              ニューワールド
-            </a>
-            <a class="navbar-item " href="#">
-              日本
-            </a>
+            <%= link_to  "オールドワールド", search_wines_path(@q, :'q[country_id_eq_any' => ["1","2","4","6","7","8","15","16","17"]),class: "navbar-item" %>
+            <%= link_to  "ニューワールド", search_wines_path(@q, :'q[country_id_eq_any' => ["5","9","10","11","12","13"]),class: "navbar-item" %>
+            <%= link_to  "日本ワイン", search_wines_path(@q, :'q[country_id_eq' => '3'),class: "navbar-item" %>
+
             <%# <hr class="navbar-divider">
             <div class="navbar-item">
               <div>version
@@ -104,7 +77,7 @@
                 <span class="icon">
                   <i class="fa fa-download"></i>
                 </span>
-                <span>lestavin</span>
+                <span>listavin</span>
               </a>
             </p>
           </div>
@@ -116,20 +89,36 @@
   
 <div class="container wine-search ">
       <div class="field is-grouped">
-        <p class="control is-expanded">
+        <%# <p class="control is-expanded">
           <input class="input" type="text" placeholder="ワインを検索する">
         </p>
         <p class="control">
           <a class="button is-dark">
             検索
           </a>
-        </p>
-        <%= search_form_for @q, url:search_wines_path do |f|%>
-          <%= f.label :wine_name, "ワインを検索する"%>
-          <%= f.search_field :wine_name_cont %>
-          <%= f.submit "検索" ,class: "button is-dark"%>
-          
+        </p> %>
+        <%= search_form_for @q, url: search_wines_path do |f|%>
+            <div class="columns">
+              <div class="control is-expanded column">
+                <%= f.label :wine_name, "ワイン名、生産者でを検索する"%>
+                <%= f.search_field :wine_name_or_wine_name_kana_cont, class:"input" %>
+                <%= f.label :selling_price, "販売価格帯で検索する"%>
+                  <div>
+                    <%= f.radio_button :selling_price_lteq, "4000", class:"radio" %>4000円以下
+                    <%= f.radio_button :selling_price_lteq, "6000", class:"radio" %>6000円以下
+                    <%= f.radio_button :selling_price_lteq, "8000", class:"radio" %>8000円以下
+                    <%= f.radio_button :selling_price_lteq, "10000", class:"radio" %>10000円以下
+                    <%= f.radio_button :selling_price_lteq, "20000", class:"radio" %>20000円以下
+                    <%= f.radio_button :selling_price_gteq, "20000", class:"radio" %>20000円以上
+                  </div>
+                <%= f.collection_select :country_id_eq, Country.all,  :id, :name_kana, {prompt: "国名を選択してください"}, {class: "select is-primary is-rounded"} %>
+            <%# </div> %>
+            <%# <div class="control"> %>
+              <%= f.submit "検索" ,class: "button is-dark"%>
+              </div>
+            </div>
         <% end %>
+        
       </div>
       <div class="pagination is-centered is-rounded has-text-centered "><%== pagy_bulma_nav(@pagy) %></div>
 </div>
@@ -149,18 +138,7 @@
           <th><%= sort_link(@q, :selling_price, "販売価格")%></th>
           <th><%= sort_link(@q, :wine_wholesaler, "ワイン会社")%></th>
           <th><%= sort_link(@q, :onlist, "オンリスト")%></th>
-          <%# <th>ID</th>
-          <th>ワイン名</th>
-          <th>ワイン名カナ</th>
-          <th>生産者名</th>
-          <th>生産者名カナ</th>
-          <th>品種</th>
-          <th>ヴィンテージ</th>
-          <th>仕入れ値</th>
-          <th>販売価格</th>
-          <th>ワイン会社</th>
-          <th>オンリスト</th>
-          <th>アクション</th> %>
+          <th>アクション</th>
         </tr>
       </thead>
       <%# <tfoot>
@@ -195,7 +173,13 @@
           <td><%= wine.onlist %></td>
           <td class="is-flex-desctop">
               <div class="button is-danger"><%= link_to '削除', wine_path(wine.id),method: :delete, data: { confirm: "削除してよろしいですか？", commit: "削除する", cancel: "やめる", title: "ご確認ください" } %></div>
-              <div class="button is-info">編集</div>
+              <div class="button is-dark"><%= link_to 'コピー', copy_wine_path(wine.id), data: { confirm: "コピーしてよろしいですか？", commit: "コピーする", cancel: "やめる", title: "ご確認ください" } %></div>
+              <div class="button is-info"><%= link_to '編集', edit_wine_path(wine.id) %></div>
+              <%# <div class="button is-info">
+              <%= link_to edit_wine_path(wine.id) do %>
+              <%# <%= fa_icon 'edit'%>
+              <%# <% end %>
+            
           </td>
         </tr> 
         <% end %>

@@ -1,24 +1,18 @@
-// Place all the styles related to the wines controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
-
 .hero-body {
   margin: 0 auto;
- 
 }
 
 .hero {
-  background: rgb(247, 247, 247);
+  background: #f7f7f7;
 }
 
 .login {
-  box-shadow: 2px 2px 2px 6px rgba(0,0,0,0.22)
+  -webkit-box-shadow: 2px 2px 2px 6px rgba(0, 0, 0, 0.22);
+          box-shadow: 2px 2px 2px 6px rgba(0, 0, 0, 0.22);
 }
 
-
-
 .wineform {
-  background: rgb(247, 247, 247);
+  background: #f7f7f7;
   width: 100%;
   height: 100%;
   padding: 30px;
@@ -27,21 +21,12 @@
 .state {
   margin-right: 150px;
 }
-// .leftform {
-//   width: 50%;
-// }
-
-// .rightform {
-//   width: 50%;
-// }
 
 .savebutton {
   position: fixed;
   bottom: 0;
   width: 100%;
 }
-
-
 
 .wine-pagination {
   position: fixed;
@@ -52,14 +37,16 @@
 .app_checkbox {
   display: none;
 }
+
 .app_checkbox {
-  color:rgb(247, 247, 247);
+  color: #f7f7f7;
   display: inline-block;
   width: 30px;
   height: 30px;
 }
 
 .wine-search {
-  padding-top : 80px;
+  padding-top: 80px;
   padding-bottom: 20px;
 }
+/*# sourceMappingURL=wines.css.map */
