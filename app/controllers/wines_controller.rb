@@ -7,9 +7,11 @@ class WinesController < ApplicationController
   before_action :set_q, only: [:index, :search, :copy]
 
   def index
-    # @q = Wine.ransack(params[:q])
-    @pagy, @wines = pagy(Wine.all)
-    # @pagy,@wines = @q.result(distinct: true)
+    @q = Wine.ransack(params[:q])
+    # @pagy, @wines = pagy(Wine.all)
+    @pagy,@wines = pagy(@q.result)
+   
+    
   end
 
   def search
