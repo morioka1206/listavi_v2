@@ -1,0 +1,101 @@
+
+	
+	<link rel="stylesheet" href="../css/contact.css">
+
+
+
+	<nav class="navbar">
+		<div class="container">
+			<div class="navbar-brand">
+				<a class="navbar-item" href="../">
+					<img src="../images/bulma.png" alt="Logo">
+				</a>
+				<span class="navbar-burger burger" data-target="navbarMenu">
+					<span></span>
+					<span></span>
+					<span></span>
+				</span>
+			</div>
+			<div id="navbarMenu" class="navbar-menu">
+				<div class="navbar-end">
+					<a class="navbar-item is-active">Home</a>
+					<a class="navbar-item">Examples</a>
+					<a class="navbar-item">Features</a>
+					<a class="navbar-item">Team</a>
+					<a class="navbar-item">Archives</a>
+					<div class="navbar-item has-dropdown is-hoverable">
+						<a class="navbar-link">アカウント</a>
+						<div class="navbar-dropdown">
+							<%# <a class="navbar-item">Dashboard</a>
+							<a class="navbar-item">Profile</a>
+							<a class="navbar-item">Settings</a> %>
+							<%# <hr class="navbar-divider"> %>
+							<div class="navbar-item">新規登録</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</nav>
+	<!-- END NAV -->    
+	<section class="hero is-fullheight">
+		<div class="contact">
+			<div class="container has-text-centered">
+				<div class="columns is-6 is-variable ">
+					<div class="column is-half">
+						<h1 class="title is-2">お問い合わせ</h1>
+						<p class="is-size-6">
+            まだメール機能はありません。
+            </p>
+					</div>
+					<div class="column is-half  has-text-left">
+						<div class="field">
+							<label class="label">お名前</label>
+							<div class="control">
+								<input class="input is-medium" type="text">
+							</div>
+						</div>
+						<div class="field">
+							<label class="label">メールアドレス</label>
+							<div class="control">
+								<input class="input is-medium" type="text">
+							</div>
+						</div>
+						<div class="field">
+							<label class="label">お問い合わせ内容</label>
+							<div class="control">
+								<textarea class="textarea is-large"></textarea>
+							</div>
+						</div>
+						<div class="control">
+							<button type="submit" class="button is-link is-fullwidth has-text-weight-medium is-medium">送信</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+    <div class="column is-8 is-offset-2">
+          <br>
+          <nav class="level">
+            <div class="level-left">
+              <div class="level-item">
+                <span class="icon">
+                  <%= link_to "https://twitter.com" do %>
+                  <i class="fab fa-twitter"></i>
+                  <% end %>
+                </span> &emsp;
+                <span class="icon">
+                  <%= link_to "https://facebook.com" do %>
+                  <i class="fab fa-facebook"></i>
+                  <% end %>
+              </div>
+            </div>
+            <div class="level-right">
+              <small class="level-item" style="color: var(--textLight)">
+                &copy; Listavin
+              </small>
+            </div>
+          </nav>
+        </div>
+	</section>
+  

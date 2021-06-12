@@ -1,0 +1,173 @@
+<!-- Contact -->
+<nav class="navbar">
+		<div class="container">
+			<div class="navbar-brand">
+				<a class="navbar-item" href="../">
+					<img src="../images/bulma.png" alt="Logo">
+				</a>
+				<span class="navbar-burger burger" data-target="navbarMenu">
+					<span></span>
+					<span></span>
+					<span></span>
+				</span>
+			</div>
+			<div id="navbarMenu" class="navbar-menu">
+				<div class="navbar-end">
+					<a class="navbar-item is-active">ホーム</a>
+					<div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-item">アクション</a>
+						<div class="navbar-dropdown">
+							<a class="navbar-item">編集</a>
+							<a class="navbar-item">削除</a>
+						</div>
+					</div>
+          <div class="navbar-item">店舗名：<%= @shop_name %></div> 
+				</div>
+			</div>
+		</div>
+	</nav>
+
+  <section class="section show-page" id="contact">
+    <div class="container">
+      <div class="section-heading has-text-centered">
+        <h3 class="title is-2"><%= @wine.wine_name%></h3>
+        <h4 class="subtitle is-5 show-vintage"><%= @wine.vintage %></h4>
+      </div>
+      <br>
+
+      <div class="columns">
+        <div class="column is-6 is-offset-3">
+          <div class="winebox">
+
+            <div class="field">
+              <label class="label">ワイン名</label>
+              <div class="control has-icons-left">
+                <input class="input" type="text" value="<%=@wine.wine_name%>"readonly>
+                <span class="icon is-small is-left">
+                  <i class="fas fa-envelope"></i>
+                </span>
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label">ワイン名カナ</label>
+              <div class="control has-icons-left">
+                <input class="input" type="text" value="<%=@wine.wine_name_kana%>"readonly>
+                <span class="icon is-small is-left">
+                  <i class="fas fa-envelope"></i>
+                </span>
+              </div>
+            </div>
+
+
+            <div class="field">
+              <label class="label">生産者</label>
+              <div class="control has-icons-left">
+                <input class="input" type="text" value="<%=@wine.winary.winary_name%>"readonly>
+                <span class="icon is-small is-left">
+                  <i class="fas fa-envelope"></i>
+                </span>
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label">生産者カナ</label>
+              <div class="control has-icons-left">
+                <input class="input" type="text" value="<%=@wine.winary.winary_name_kana%>"readonly>
+                <span class="icon is-small is-left">
+                  <i class="fas fa-envelope"></i>
+                </span>
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label">ヴィンテージ</label>
+              <div class="control has-icons-left">
+                <input class="input" type="text" value="<%=@wine.vintage%>"readonly>
+                <span class="icon is-small is-left">
+                  <i class="fas fa-envelope"></i>
+                </span>
+              </div>
+            </div>
+            
+            <div class="field">
+              <label class="label">品種</label>
+              <div class="control has-icons-left">
+                <input class="input" type="text" value="カベルネソーヴィニヨン"readonly>
+                <span class="icon is-small is-left">
+                  <i class="fas fa-envelope"></i>
+                </span>
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label">ヴィンテージ</label>
+              <div class="control has-icons-left">
+                <input class="input" type="text" value="<%=@wine.vintage%>"readonly>
+                <span class="icon is-small is-left">
+                  <i class="fas fa-envelope"></i>
+                </span>
+              </div>
+            </div>
+            
+            <div class="field">
+              <label class="label">仕入れ価格</label>
+              <div class="control has-icons-left">
+                <input class="input" type="text" value="<%=@wine.purchase_price%>"readonly>
+                <span class="icon is-small is-left">
+                  <i class="fas fa-envelope"></i>
+                </span>
+              </div>
+            </div>
+            
+            <div class="field">
+              <label class="label">販売価格</label>
+              <div class="control has-icons-left">
+                <input class="input" type="text" value="<%=@wine.selling_price%>"readonly>
+                <span class="icon is-small is-left">
+                  <i class="fas fa-envelope"></i>
+                </span>
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label">原価率</label>
+              <div class="control has-icons-left">
+                <input class="input" type="text" value="<%= @cost %>%"readonly>
+                <span class="icon is-small is-left">
+                  <i class="fas fa-envelope"></i>
+                </span>
+              </div>
+            </div>
+            
+            <div class="field">
+              <label class="label">テイスティングノート</label>
+              <div class="control">
+                <textarea class="textarea" placeholder="Textarea" readonly><%=@wine.comment%></textarea>
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label">メモ</label>
+              <div class="control">
+                <textarea class="textarea" placeholder="ちょっとした情報を書き込みます" readonly><%=@wine.memo%></textarea>
+              </div>
+            </div>
+
+            <%# <div class="field is-grouped">
+              <div class="control">
+                <button class="button is-link is-large"><span class="icon">
+                    <i class="fas fa-envelope"></i>
+                  </span>
+                  <span>
+                  <%= link_to  "編集", edit_wine_path(@wine.id) ,class: "is-primary "%>
+                  <%# </span>
+                  </button>
+              </div>
+            </div> %>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>

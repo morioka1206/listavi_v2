@@ -4,18 +4,28 @@ class WinesController < ApplicationController
 
   # before_action :wine_params, only: [:show, :update, :edit, :delete]
   include Pagy::Backend
-  before_action :set_q, only: [:index, :search, :copy]
+  before_action :set_q, only: [:index, :search, :copy, :winelist, :winelist_search]
+  before_action :shop_name
 
   def index
     @q = Wine.ransack(params[:q])
     # @pagy, @wines = pagy(Wine.all)
-    @pagy,@wines = pagy(@q.result)
+    @pagy,@wines = pagy(@q.result, items: 30)
    
     
   end
 
+  def winelist
+    @q = Wine.ransack(params[:q])
+    @pagy,@wines = pagy(@q.result, items: 8)
+  end
+
+  def winelist_search
+    @pagy, @results = pagy(@q.result, items: 8)
+  end
+
   def search
-    @pagy, @results = pagy(@q.result)
+    @pagy, @results = pagy(@q.result, items: 30)
   end
 
   def copy
@@ -48,7 +58,9 @@ class WinesController < ApplicationController
   end
 
   def show
-    @wine = WineForm.new(wine_params)
+    @wine = Wine.find(params[:id])
+    cost =@wine.purchase_price / @wine.selling_price.to_f
+    @cost = (cost * 100).floor
   end
 
   def update
@@ -93,7 +105,9 @@ class WinesController < ApplicationController
       :selling_price, :stock, :onlist, :state, :country_id, :winary_id, :grape_ids, :wine_id, :wholesaler_id, :grape_id, :wine_type).merge(shop_id: current_shop.id)
   end
   
-  
+  def shop_name
+    @shop_name = current_shop.name
+  end
   
 
 end
