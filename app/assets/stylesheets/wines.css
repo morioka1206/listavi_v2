@@ -1,3 +1,19 @@
+.button a:visited, a:link {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+td a:visited a:link {
+  color: #363636;
+}
+
+th a:visited, a:link {
+  color: #363636;
+}
+
+th {
+  color: #363636;
+}
+
 .hero-body {
   margin: 0 auto;
 }
@@ -11,8 +27,12 @@
           box-shadow: 2px 2px 2px 6px rgba(0, 0, 0, 0.22);
 }
 
-.winehero {
+.listavin-color {
   background-color: #fffdf5;
+}
+
+.index-notice {
+  margin-top: 53px;
 }
 
 .wineform {
@@ -59,7 +79,6 @@
 }
 
 .winebox {
-  background-color: #fff;
   border-radius: 6px;
   -webkit-box-shadow: 2px 2px 2px 6px rgba(0, 0, 0, 0.22);
           box-shadow: 2px 2px 2px 6px rgba(0, 0, 0, 0.22);

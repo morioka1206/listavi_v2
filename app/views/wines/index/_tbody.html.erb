@@ -1,0 +1,18 @@
+<tr>
+    <td><%= wine.id%>
+    <td><%= link_to  wine.wine_name, url: "#"%>
+    <td><%= wine.wine_name_kana%></td>
+    <td><%= wine.winary.winary_name%></td>
+    <td><%= wine.winary.winary_name_kana%></td>
+    <td><%= wine.grapes.pluck(:grape_name).join%></td>
+    <td><%= wine.vintage%></td>
+    <td><%= wine.purchase_price %></td>
+    <td><%= wine.selling_price%></td>
+    <td><%= wine.wholesaler.company_name%></td>
+    <td><%= wine.onlist %></td>
+    <td class="is-flex-desctop">
+        <div class="button is-danger"><%= link_to '削除', wine_path(wine.id),method: :delete, data: { confirm: "削除してよろしいですか？", commit: "削除する", cancel: "やめる", title: "ご確認ください" } %></div>
+        <div class="button is-dark"><%= link_to 'コピー', copy_wine_path(wine.id), data: { confirm: "コピーしてよろしいですか？", commit: "コピーする", cancel: "やめる", title: "ご確認ください" } %></div>
+        <div class="button is-info"><%= link_to '編集', edit_wine_path(wine.id) %></div>
+    </td>
+</tr> 

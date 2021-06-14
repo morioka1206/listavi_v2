@@ -1,6 +1,4 @@
-<section class= "hero is-fullheight" id="app-1">
-  <%= form_with url: wines_path do |f|%>
-  <div class=" columns wineform ">
+<%# <div class=" columns wineform "> %>
     <div class= "column">
 
           <div class="columns">
@@ -8,7 +6,7 @@
               <div class="column ">
                 <%= f.label :wine_name, "ワイン名（アルファベットもしくは日本語）", class:"is-size-7" %>
                 <p class="control has-icons-left">
-                    <%= f.text_field :wine_name , class: "leftform input is-primary", "v-model" => "winename" %>
+                    <%= f.text_field :wine_name , class: "leftform input", "v-model" => "winename" %>
                     <span class="icon is-small is-left">
                       <i class="fas fa-wine-glass-alt"></i>
                     </span>
@@ -17,7 +15,7 @@
               <div class="column">
                 <%= f.label :wine_name_kana, "ワイン名（カナ）" , class:"is-size-7"%>
                 <p class="control has-icons-left">
-                    <%= f.text_field :wine_name_kana, class: "input is-primary" %>
+                    <%= f.text_field :wine_name_kana, class: "input" %>
                     <span class="icon is-small is-left">
                       <i class="fas fa-wine-glass-alt"></i>
                     </span>
@@ -26,31 +24,24 @@
             </div>
           </div>
 
-          <div class="field">
-  <p class="control has-icons-left">
-    <input class="input" type="password" placeholder="Password">
-    <span class="icon is-small is-left">
-      <i class="fas fa-wine-glass-alt"></i>
-    </span>
-  </p>
-</div>
+          
           <div class="columns">
             <div class="winaryname">
                 <div class="column ">
                   <%= f.label :winary_name, "ワイン生産者（アルファベットもしくは日本語）" , class:"is-size-7"%>
                   <p class="control has-icons-left">
-                      <%= f.text_field :winary_name, class: "input is-info is-primary" , "v-model"=> "winaryname"%>
+                      <%= f.text_field :winary_name, class: "input" , "v-model"=> "winaryname"%>
                       <span class="icon is-small is-left">
-                        <i class="fab fa-fort-awesome"></i>
+                        <i class="fas fa-user-alt"></i>
                       </span>
                   </p>
                 </div>
                 <div class="column">
                   <%= f.label :winary_name_kana, "ワイン生産者（カナ）" , class:"is-size-7"%>
                   <p class="control has-icons-left">
-                      <%= f.text_field :winary_name_kana, class: "input is-primary" %>
+                      <%= f.text_field :winary_name_kana, class: "input" %>
                       <span class="icon is-small is-left">
-                        <i class="fab fa-fort-awesome"></i>
+                        <i class="fas fa-user-alt"></i>
                       </span>
                   </p>
                 </div>
@@ -66,7 +57,7 @@
                       <span class="icon is-small">
                         <i class="fas fa-glass-cheers"></i>
                       </span>
-                  <%= f.select :wine_type, ["スパークリング","赤ワイン","白ワイン"], {prompt: "種類を選択してください"} ,{class: "select is-primary is-rounded", required: true}%>
+                  <%= f.select :wine_type, ["スパークリング","赤ワイン","白ワイン"], {prompt: "種類を選択してください"} ,{class: "select", required: true}%>
                   </p>
                 </div>
                 
@@ -80,13 +71,13 @@
                         <span class="icon is-small">
                           <i class="fas fa-flag-usa"></i>
                         </span>
-                    <%= f.collection_select(:country_id, Country.all, :id, :name, {prompt: "国名を選択してください"}, {class: "select is-primary is-rounded"}) %>
+                    <%= f.collection_select(:country_id, Country.all, :id, :name_kana, {prompt: "国名を選択してください"}, {class: "select"}) %>
                     </p>
                   </div>
                 <div class="column state">
                   <%= f.label :state, "州・地域名", class:"is-size-7"%>
                   <p class="control has-icons-left">
-                      <%= f.text_field :state , class: "input is-primary"%>
+                      <%= f.text_field :state , class: "input"%>
                       <span class="icon is-small is-left">
                         <i class="fas fa-city"></i>
                       </span>
@@ -99,7 +90,7 @@
                 <div class="column">
                   <%= f.label :grape_name, "ぶどう品種", class:"is-size-7"%>
                   <p class="control has-icons-left">
-                  <%= f.text_field :grape_name , class: "input is-primary", "v-model" => "grapes"%>
+                  <%= f.text_field :grape_name , class: "input", "v-model" => "grapes"%>
                   <span class="icon is-small is-left">
                         <i><%= image_tag 'grape.svg', class: "image is-16x16"%></i>
                       </span>
@@ -111,7 +102,7 @@
                 <div class="column is-half">
                   <%= f.label :vintage, "ヴィンテージ", class:"is-size-7" %>
                   <p class="control has-icons-left">
-                  <%= f.text_field :vintage, class: "input is-primary" %>
+                  <%= f.text_field :vintage, class: "input" %>
                       <span class="icon is-small is-left">
                         <i class="far fa-calendar-alt"></i>
                       </span>
@@ -123,7 +114,7 @@
                 <div class="column is-half">
                   <%= f.label :purchase_price, "仕入れ価格", class:"is-size-7" %>
                   <p class="control has-icons-left">
-                  <%= f.number_field :purchase_price, class: "input is-primary", "v-model"=>"guideline_price"%>
+                  <%= f.number_field :purchase_price, class: "input", "v-model"=>"guideline_price"%>
                       <span class="icon is-small is-left">
                         <i class="fas fa-truck"></i>
                       </span>
@@ -138,7 +129,7 @@
                 <div class="column is-half">
                   <%= f.label :selling_price, "販売価格" , class:"is-size-7"%>
                   <p class="control has-icons-left">
-                  <%= f.number_field :selling_price , class: "input is-primary is-rounded", "v-model"=>"selling_price"%>
+                  <%= f.number_field :selling_price , class: "input", "v-model"=>"selling_price"%>
                       <span class="icon is-small is-left">
                         <i class="far fa-money-bill-alt"></i>
                       </span>
@@ -154,7 +145,7 @@
                 <div class="column">
                   <%= f.label :company_name, "ワイン会社", class:"is-size-7"%>
                   <p class="control has-icons-left">
-                  <%= f.text_field :company_name , class: "input is-primary"%>
+                  <%= f.text_field :company_name , class: "input"%>
                     <span class="icon is-small is-left">
                         <i class="far fa-building"></i>
                       </span>
@@ -162,105 +153,3 @@
                 </div>
           </div>
     </div>
-    <div class="column wineform">
-          <div class="columns">
-                <div class="column">
-                <%= f.label :comment,"テイスティングコメント", class:"is-size-7" %>
-                <p class="control has-icons-left">
-                <%= f.text_area :comment, class:"textarea is-primary", "v-model" => "comment" %>
-                  <span class="icon is-small is-left">
-                        <i class="far fa-comments"></i>
-                      </span>
-                  </p>
-                </div>
-          </div>
-          <br>
-          <div class="columns">
-                <div class="column">
-                  <%= f.label :memo,"メモ", class:"is-size-7" %>
-                  <p class="control has-icons-left">
-                  <%= f.text_area :memo, class:"textarea is-primary", "v-model" => "memo" %>
-                    <span class="icon is-small is-left">
-                        <i class="far fa-sticky-note"></i>
-                      </span>
-                  </p>
-                </div>
-          </div>
-          <div class="columns">
-                <div class="column is-one-quarter">
-                  <%= f.label :stock, "在庫数", class:"is-size-7" %>
-                  <p class="control has-icons-left">
-                  <%= f.number_field :stock, min: 0 , class: "input is-primary is-rounded", "v-model" => "stock"%>
-                    <span class="icon is-small is-left">
-                        <i class="fas fa-warehouse"></i>
-                      </span>
-                  </p>
-                </div>
-          </div>
-        
-          <br>
-          <div class="columns">
-                <div class="column">
-                  <div>
-                  <%= f.label :onlist,"ワインリストに載せる場合はチェックを入れてください。", class:"is-size-7"%>
-                  </div>
-                  <span class="icon">
-                    <i class="fas fa-book"></i>
-                  </span>
-                  <%= f.check_box :onlist ,{checked: false, class: "app_checkbox", "v-model" => "onlist"}, "true", "false" %>
-                </div>
-          </div>
-          <br>
-          <br>
-          <div class="columns ">
-                <div class="column box is-size-6">
-                <p>ワイン名：{{winename}}</p>
-                <p>生産者名：{{ winaryname}}</p>
-                <p>品種：{{ grapes }}</p>
-                <p>仕入れ価格：{{guideline_price}}円</p>
-                <p>販売価格：{{selling_price}}円</p>
-                <p>在庫数：{{stock}}本</p>
-                <p>オンリスト：{{onlist}}</p>
-                <p class="has-background-white">テイスティングノート：{{comment}}</p>
-                <p class="has-background-white">メモ：{{memo}}</p>
-                </div>
-          </div>
-      </div>
-    </div>
-
-    
-  </div> 
-  <div class="savebutton">
-   <%= f.submit "保存する", class:"button is-link is-fullwidth  is-rounded" %>
-   </div>
-  <% end %>
-  
-</section>
-
-<script>
-new Vue({
-    el: '#app-1',
-    data: {
-        guideline_price : '',
-        purchase_price : '',
-        selling_price : '',
-        winename : '',
-        winaryname : '',
-        country : '',
-        grapes : '',
-        stock : '',
-        comment : '',
-        memo : '',
-        onlist : "",
-
-    },
-    computed: {
-      cost: function() { 
-      const answer = (this.guideline_price / this.selling_price)*100;
-      if(isNaN(answer)) return 0;
-      if(!isFinite(answer)) return 0;
-      return answer;
-    },
-    }
-});
-</script>

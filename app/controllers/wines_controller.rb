@@ -4,7 +4,8 @@ class WinesController < ApplicationController
 
   # before_action :wine_params, only: [:show, :update, :edit, :delete]
   include Pagy::Backend
-  before_action :set_q, only: [:index, :search, :copy, :winelist, :winelist_search]
+  before_action :set_q, only: [:index, :search, :copy]
+  before_action :onlist_set_q, only: [:winelist, :winelist_search]
   before_action :shop_name
 
   def index
@@ -16,7 +17,9 @@ class WinesController < ApplicationController
   end
 
   def winelist
-    @q = Wine.ransack(params[:q])
+    
+    binding.pry
+    
     @pagy,@wines = pagy(@q.result, items: 8)
   end
 
@@ -32,8 +35,12 @@ class WinesController < ApplicationController
     wine = Wine.find(params[:id])
     
     wine = wine.deep_dup
-    wine.save
-    redirect_to wines_index_path
+    if wine.save
+      redirect_to wines_index_path, notice: "コピーしました。"
+    else
+      flash.now[:alert] = "コピーに失敗しました。"
+      render :index
+    end
   end
 
   def new
@@ -43,8 +50,9 @@ class WinesController < ApplicationController
   def create
     @wine = WineForm.new(wine_params)
     if @wine.save
-      redirect_to new_wine_path
+      redirect_to wines_index_path, notice: "新規作成しました。"
     else
+      flash.now[:alert] = "記入漏れがあります。入力してください。"
       render :new
     end
   end
@@ -52,7 +60,6 @@ class WinesController < ApplicationController
   def edit
     wine = Wine.find(params[:id])
     wine_form = WineForm.new
-    
     @wine = wine_form.set_attributes(wine)
     
   end
@@ -69,9 +76,9 @@ class WinesController < ApplicationController
     @wine = WineForm.new(update_wine_params)
     
       if @wine.update
-        redirect_to wines_index_path
-        # redirect_to edit_wine_path(params[:id])
+        redirect_to wines_index_path, notice: "更新しました。"
       else
+        flash.now[:alert] = "記入漏れがあります。入力してください。"
         render 'edit'
       end
   end
@@ -79,8 +86,9 @@ class WinesController < ApplicationController
   def destroy
     wine = Wine.find(params[:id])
     if wine.destroy!
-      redirect_to wines_path
+      redirect_to wines_index_path, notice: "削除しました。"
     else
+      flash.now[:alert] = "削除できませんでした。"
       render "index"
     end
   end
@@ -94,6 +102,9 @@ class WinesController < ApplicationController
     @q = Wine.ransack(params[:q])
   end
   
+  def onlist_set_q
+    @q = Wine.where("onlist = true and stock >=  1").ransack(params[:q])
+  end
 
   def wine_params
     params.permit(:grape_name, :winary_name, :winary_name_kana, :company_name, :wine_name, :wine_name_kana, :vintage, :comment, :purchase_price,:memo,
