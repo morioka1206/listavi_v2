@@ -17,9 +17,6 @@ class WinesController < ApplicationController
   end
 
   def winelist
-    
-    binding.pry
-    
     @pagy,@wines = pagy(@q.result, items: 8)
   end
 

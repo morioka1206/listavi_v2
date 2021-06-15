@@ -1,5 +1,5 @@
 <!-- Contact -->
-<nav class="navbar">
+<nav class="navbar is-light">
 		<div class="container">
 			<div class="navbar-brand">
 				<a class="navbar-item" href="../">
@@ -17,12 +17,29 @@
             <div class="navbar-item">
             <div class="field is-grouped">
               <p class="control">
-                <div class = "button is-primary navbar-item is-active "><%= link_to  "ホーム", wines_index_path %></div>
-                <div class="button is-danger navbar-item is-active "><%= link_to '削除', wine_path(@wine.id),method: :delete, data: { confirm: "削除してよろしいですか？", commit: "削除する", cancel: "やめる", title: "ご確認ください" } %></div>
-                <div class="button is-dark navbar-item is-active"><%= link_to 'コピー', copy_wine_path(@wine.id), data: { confirm: "コピーしてよろしいですか？", commit: "コピーする", cancel: "やめる", title: "ご確認ください" } %></div>
+                <div class = "button is-primary navbar-item button-side ">
+                    <%= link_to  wines_index_path, class: "navbar-item is-size-4" do %>
+                      <i class="fas fa-house-user"></i>
+                    <% end %>
+                </div>
+
+                <div class="button is-danger navbar-item button-side ">
+                    <%= link_to  wine_path(@wine.id),method: :delete, data: { confirm: "削除してよろしいですか？", commit: "削除する", cancel: "やめる", title: "ご確認ください" } , class: "navbar-item is-size-4" do %>
+                      <i class="far fa-trash-alt"></i>
+                    <% end %>
+                <%# <%= link_to '削除', wine_path(@wine.id),method: :delete, data: { confirm: "削除してよろしいですか？", commit: "削除する", cancel: "やめる", title: "ご確認ください" } %>
+                </div>
+
+                <div class="button is-dark navbar-item  button-side">
+                    <%= link_to  copy_wine_path(@wine.id), data: { confirm: "コピーしてよろしいですか？", commit: "コピーする", cancel: "やめる", title: "ご確認ください" } , class: "navbar-item is-size-4" do %>
+                        <i class="fas fa-copy"></i>
+                    <% end %>
+                <%# <%= link_to 'コピー', copy_wine_path(@wine.id), data: { confirm: "コピーしてよろしいですか？", commit: "コピーする", cancel: "やめる", title: "ご確認ください" } %>
+                </div>
+
               </p>
               <p class="control">
-                <div class="navbar-item">店舗名：<%= @shop_name %></div>
+                <div class="navbar-item has-text-dark">店舗名：<%= @shop_name %></div>
               </p>
             </div>
           </div>

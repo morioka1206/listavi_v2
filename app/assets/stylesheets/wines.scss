@@ -2,20 +2,22 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-.button a:visited, a:link {
-  color: rgba(255,255,255,.75);
-}
 
-td a:visited a:link {
-  color: #363636
-}
-
-th a:visited, a:link  {
-  color: #363636
-}
 
 th {
   color: #363636
+}
+
+td a:link, a:visited {
+  color: #363636
+}
+
+th a:link ,a:visited {
+  color: #363636
+}
+
+.button a:link,  .button a:visited  {
+  color: rgba(255,255,255,.75);
 }
 
 .hero-body {
@@ -289,4 +291,8 @@ top: 85px;
 margin-left: 10px;
 margin-right: 5px;
 
+}
+
+.button-side {
+  margin: 0 5px;
 }

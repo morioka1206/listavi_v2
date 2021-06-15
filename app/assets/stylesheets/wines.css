@@ -1,17 +1,17 @@
-.button a:visited, a:link {
-  color: rgba(255, 255, 255, 0.75);
-}
-
-td a:visited a:link {
-  color: #363636;
-}
-
-th a:visited, a:link {
-  color: #363636;
-}
-
 th {
   color: #363636;
+}
+
+td a:link, a:visited {
+  color: #363636;
+}
+
+th a:link, a:visited {
+  color: #363636;
+}
+
+.button a:link, .button a:visited {
+  color: rgba(255, 255, 255, 0.75);
 }
 
 .hero-body {
@@ -262,5 +262,9 @@ th {
   top: 85px;
   margin-left: 10px;
   margin-right: 5px;
+}
+
+.button-side {
+  margin: 0 5px;
 }
 /*# sourceMappingURL=wines.css.map */

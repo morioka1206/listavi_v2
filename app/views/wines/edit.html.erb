@@ -8,24 +8,29 @@
 
 <section class= "hero is-fullheight listavin-color" id="app-1">
   <%= form_with model: @wine ,url: wine_path(@wine.wine_id), method: :put do |f|%>
-  <%= f.hidden_field :wholesaler_id %>
-  <%= f.hidden_field :winary_id %>
-  <%= f.hidden_field :grape_ids %>
-  <%= f.hidden_field :wine_id %>
-  <div class=" columns wineform ">
+      <%= f.hidden_field :wholesaler_id %>
+      <%= f.hidden_field :winary_id %>
+      <%= f.hidden_field :grape_ids %>
+      <%= f.hidden_field :wine_id %>
+      <div class=" columns wineform ">
 
-    <%= render 'wines/form/left_form', f: f %>
-    
-    <%= render 'wines/form/right_form', f: f %>
-          
+        <%= render 'wines/form/left_form', f: f %>
+        
+        <%= render 'wines/form/right_form', f: f %>
+              
+          </div>
+        </div>
+        
+      </div> 
+      <div class="savebutton icon-text">
+          <%= f.button :type => "submit" "保存する", class:"button is-info is-fullwidth  is-rounded " do %>
+              <span>保存する　</span>
+              <span class="is-size-5">
+              <i class="far fa-save"></i>
+              </span>
+          <% end %>
+
       </div>
-    </div>
-
-    
-  </div> 
-  <div class="savebutton">
-   <%= f.submit "保存する", class:"button is-link is-fullwidth  is-rounded" %>
-   </div>
   <% end %>
   
 </section>

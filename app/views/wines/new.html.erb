@@ -9,34 +9,37 @@
 
 <section class= "hero is-fullheight listavin-color " id="app-1">
   <%= form_with url: wines_path do |f|%>
-  <div class=" columns wineform ">
+      <div class=" columns wineform ">
 
-    <%= render 'wines/form/left_form', f: f %>
+        <%= render 'wines/form/left_form', f: f %>
 
-    <%= render 'wines/form/right_form', f: f %>
-          <br>
-          <br>
-          <div class="columns ">
-                <div class="column box is-size-6">
-                <p>ワイン名：{{winename}}</p>
-                <p>生産者名：{{ winaryname}}</p>
-                <p>品種：{{ grapes }}</p>
-                <p>仕入れ価格：{{guideline_price}}円</p>
-                <p>販売価格：{{selling_price}}円</p>
-                <p>在庫数：{{stock}}本</p>
-                <p>オンリスト：{{onlist}}</p>
-                <p class="has-background-white">テイスティングノート：{{comment}}</p>
-                <p class="has-background-white">メモ：{{memo}}</p>
-                </div>
+        <%= render 'wines/form/right_form', f: f %>
+              <br>
+              <br>
+              <div class="columns ">
+                    <div class="column box is-size-6">
+                    <p>ワイン名：{{winename}}</p>
+                    <p>生産者名：{{ winaryname}}</p>
+                    <p>品種：{{ grapes }}</p>
+                    <p>仕入れ価格：{{guideline_price}}円</p>
+                    <p>販売価格：{{selling_price}}円</p>
+                    <p>在庫数：{{stock}}本</p>
+                    <p>オンリスト：{{onlist}}</p>
+                    <p class="has-background-white">テイスティングノート：{{comment}}</p>
+                    <p class="has-background-white">メモ：{{memo}}</p>
+                    </div>
+              </div>
           </div>
-      </div>
-    </div>
+        </div>
 
-    
-  </div> 
-  <div class="savebutton">
-   <%= f.submit "保存する", class:"button is-link is-fullwidth  is-rounded" %>
-   </div>
+        
+      </div> 
+      <div class="savebutton icon-text">
+          <%= f.button :type => "submit" "保存する", class:"button is-danger is-fullwidth  is-rounded " do %>
+              <span>保存する　</span>
+              <i class="far fa-save"></i>
+          <% end %>
+      </div>
   <% end %>
   
 </section>

@@ -1,4 +1,4 @@
-<nav class="navbar is-primary is-fixed-top">
+<nav class="navbar is-light is-fixed-top">
     <div class="navbar-brand ">
       <a class="navbar-item" href="https://bulma.io">
         <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">
@@ -6,10 +6,9 @@
     </div>
     <div id="navMenuExample2" class="navbar-menu">
       <div class="navbar-start">
-        <%# <a class="navbar-item " href="#">
-          ホーム
-        </a> %>
-        <%= link_to 'ホーム', wines_index_path, class: "navbar-item" %>
+
+        <%# <%= link_to 'ホーム', wines_index_path, class: "navbar-item" %>
+       
         <div class="navbar-item has-dropdown is-hoverable">
           <a class="navbar-link" href="#">
             価格帯
@@ -60,10 +59,21 @@
       <div class="navbar-item">
           <div class="field is-grouped">
             <p class="control">
-              <%= link_to  "＋新規登録", new_wine_path , class: "button"%>
+
+              <%= link_to  new_wine_path ,class: "navbar-item button" do %>
+                    <span>＋新規登録　</span>
+                    <span class="is-size-6"><i class="fas fa-pencil-alt"></i></span>
+              <% end %>
+              <%# <%= link_to  "＋新規登録", new_wine_path , class: "button" %>
+              <div class = " navbar-item button is-primary button-side ">
+                <%= link_to  wines_index_path, class: "navbar-item is-size-4 is-primary button-side" do %>
+                  <i class="fas fa-house-user"></i>
+                <% end %>
+              </div>
+
             </p>
             <p class="control">
-              <div class="navbar-item">店舗名：<%= @shop_name %></div>
+              <div class="navbar-item has-text-dark">店舗名：<%= @shop_name %></div>
             </p>
           </div>
         </div>

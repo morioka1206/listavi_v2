@@ -3,10 +3,10 @@
     <section class="container">
       <div class="columns is-multiline">
         <div class="column is-8 is-offset-2 register">
-          <div class="columns">
+          <div class="columns listavin-color">
             <div class="column left">
-              <h1 class="title is-1 has-text-info">お店を登録する </h1>
-              <h2 class="subtitle colored is-5 has-text-primary">レストランのワイン管理を便利に。</h2>
+              <h1 class="title is-2 has-text-info has-text-centered">お店を登録する </h1>
+              <h2 class="subtitle colored is-5 has-text-danger has-text-centered">レストランのワイン管理を簡単に。</h2>
               <br>
               <p class="is-size-6 has-text-grey-darker">お店の名前とEmailとパスワードで<br>かんたんに登録ができます。</p>
               <br>
@@ -16,44 +16,38 @@
               <br>
               <p class="has-text-dark">さあ、はじめましょう。</p>
             </div>
-            <di class="column right has-text-centered">
-              <h1 class="title is-4">新規店舗登録</h1>
+            <div class="column right has-text-centered">
+              <h1 class="title is-4 has-text-grey">新規店舗登録</h1>
               <%= form_with model: @shop do |f| %>
-              <%# <form> %>
                 <div class="field">
                   <div class="control">
                     <%= f.label :name, "店舗名" %>
-                    <%= f.text_field :name, class:"input is-medium is-rounded" %>
-                    <%# <input class="input is-small" type="text" placeholder="Name"> %>
+                    <%= f.text_field :name, class:"input is-medium" %>
                   </div>
                 </div>
 
                 <div class="field">
                   <div class="control">
-                    <%# <input class="input is-medium" type="email" placeholder="Email"> %>
                     <%= f.label :email, "メールアドレス" %>
-                    <%= f.email_field :email, class: "input is-medium is-rounded" %>
+                    <%= f.email_field :email, class: "input is-medium" %>
                   </div>
                 </div>
                 <div class="field">
                   <div class="control">
-                    <%# <input class="input is-medium" type="email" placeholder="Email"> %>
                     <%= f.label :password, "パスワード" %>
-                    <%= f.password_field :password, class: "input is-medium is-rounded" %>
+                    <%= f.password_field :password, class: "input is-medium" %>
                   </div>
                 </div>
                 <div class="field">
                   <div class="control">
-                    <%# <input class="input is-medium" type="email" placeholder="Email"> %>
                     <%= f.label :password_confirmation, "パスワード確認用" %>
-                    <%= f.password_field :password_confirmation, class: "input is-medium is-rounded" %>
+                    <%= f.password_field :password_confirmation, class: "input is-medium" %>
                   </div>
                 </div>
                 <br>
                 <div class="field">
                   <div class="control">
-                    <%= f.submit "作成する", class: "button is-block is-danger is-fullwidth is-medium is-rounded" %>
-                <%# <button class="button is-block is-primary is-fullwidth is-medium">Submit</button> %>
+                    <%= f.submit "作成する", class: "button is-block is-info is-fullwidth is-medium is-rounded" %>
                   </div>
                 </div>
               </form>
