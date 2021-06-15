@@ -1,7 +1,8 @@
 <nav class="navbar is-light is-fixed-top">
-    <div class="navbar-brand ">
-      <a class="navbar-item" href="https://bulma.io">
-        <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://google.com">
+        <%= image_tag 'logo.png' %>
+        listavin
       </a>
     </div>
     <div id="navMenuExample2" class="navbar-menu">
@@ -62,11 +63,11 @@
 
               <%= link_to  new_wine_path ,class: "navbar-item button" do %>
                     <span>＋新規登録　</span>
-                    <span class="is-size-6"><i class="fas fa-pencil-alt"></i></span>
+                    <span class="is-size-5"><i class="fas fa-pencil-alt"></i></span>
               <% end %>
               <%# <%= link_to  "＋新規登録", new_wine_path , class: "button" %>
-              <div class = " navbar-item button is-primary button-side ">
-                <%= link_to  wines_index_path, class: "navbar-item is-size-4 is-primary button-side" do %>
+              <div class = " navbar-item button is-primary ">
+                <%= link_to  wines_index_path, class: "navbar-item is-size-4" do %>
                   <i class="fas fa-house-user"></i>
                 <% end %>
               </div>
